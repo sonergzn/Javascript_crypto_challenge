@@ -31,11 +31,11 @@ describe('Decryption', () => {
   describe('decrypt', () => {
 
 
-    xit('decrypts an encrypted message', () => {
+    it('decrypts an encrypted message', () => {
       expect(decryptor.decrypt(ciphertext, nonce)).toEqual(msg)
     })
 
-    xit('throws an error if the ciphertext has been tampered with', () => {
+    it('throws an error if the ciphertext has been tampered with', () => {
       const tamperIdx = nacl.randombytes_uniform(ciphertext.length)
       ciphertext[tamperIdx] = (ciphertext[tamperIdx] + 1) % 256 // each el is 8 bits
       try {
@@ -45,7 +45,7 @@ describe('Decryption', () => {
       }
     })
 
-    xit('throws an error if either of the arguments is undefined', () => {
+    it('throws an error if either of the arguments is undefined', () => {
       try {
         decryptor.decrypt(ciphertext)
         fail()
